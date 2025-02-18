@@ -32,6 +32,23 @@ def delete(id):
     cur.execute("DELETE FROM texto WHERE id = ?", (id,))
     con.commit()
     return redirect('/')
+@app.route('/edit/<int:id>', methods=['POST'])
+def edit(id):
+    con = sql.connect("db_web.db")
+    con.row_factory = sql.Row
+    cur = con.cursor()
+    cur.execute("SELECT * FROM texto WHERE id = ?", (id,))
+    data = cur.fetchone()
+    return render_template('edit.html', data=data)
+@app.route('/update/<int:id>', methods=['POST'])
+def update(id):
+    titulo = request.form['titulo']
+    detalhes = request.form['detalhes']
+    con = sql.connect("db_web.db")
+    cur = con.cursor()
+    cur.execute("UPDATE texto SET titulo = ?, detalhes = ? WHERE id = ?", (titulo, detalhes, id))
+    con.commit()
+    return redirect('/')
 
 if __name__ == '__main__':
     app.run(debug=True)

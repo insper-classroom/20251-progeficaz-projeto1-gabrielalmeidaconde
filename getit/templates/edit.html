@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Get-it</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/getit.css')}}">
+</head>
+<body>
+<div class='body2'>
+    <img src="{{ url_for('static', filename='img/logo-getit.png') }}">
+    <div class="edit-column">
+        <h3>Editar Nota</h3>
+        <form action="/update/{{data.id}}" method="POST">
+            <label for="titulo">Título</label>
+            <input id="titulo" type="text" name="titulo" value="{{ data.titulo }}" />
+            <label for="detalhes">Detalhes</label>
+            <input id="detalhes" type='text' name="detalhes" value="{{ data.detalhes }}" />
+            <input type="submit" />
+        </form>
+    </div>
+</body>
+</html>

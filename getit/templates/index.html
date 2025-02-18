@@ -22,11 +22,16 @@
   <tr>
     <td>
       <div class="container">
-        <div class="note">
+      <div class="notes" data-id="{{note.id}}"> <!-- Add data-id attribute -->
           <div class="note-title">{{note.titulo}}</div>
           <div class="note-content">{{note.detalhes}}</div>
             <form action="/delete/{{note.id}}" method="POST">
-              <button type="submit">x</button>
+              <button type="submit"><div class="delete-button">x</div></button>
+            </form>
+            <form action="/edit/{{note.id}}" method="POST">
+              <input type="hidden" id="titulo" name="titulo" value="{{note.titulo}}">
+              <input type="hidden" id="detalhes" name="detalhes" value="{{note.detalhes}}">
+              <button type="submit"><div class="edit-button">editar</div></button>
             </form>
         </div>
         <!-- Adicione mais notas conforme necessário -->
@@ -37,5 +42,7 @@
 </table>
 </div>
 
+<!-- Include JavaScript file -->
+<script src="{{ url_for('static', filename='data/getit.js') }}"></script>
 </body>
 </html>
