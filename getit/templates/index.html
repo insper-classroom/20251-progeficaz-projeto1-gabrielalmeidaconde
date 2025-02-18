@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Get-it</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/getit.css')}}">
+</head>
+<body>
+  <img src="{{ url_for('static', filename='img/logo-getit.png') }}">
+  <div class="text-column">
+  <form action="/submit" method="POST">
+      <label for="titulo">Título</label>
+      <input id="titulo" type="text" name="titulo" />
+      <label for="detalhes">Detalhes</label>
+      <input id="detalhes" name="detalhes" />
+      <input type="submit" />
+    </form>
+  </div>
+{% for note in datas %}
+<div class="text-row">
+<table>
+  <tr>
+    <td>
+      <div class="container">
+        <div class="note">
+          <div class="note-title">{{note.titulo}}</div>
+          <div class="note-content">{{note.detalhes}}</div>
+            <form action="/delete/{{note.id}}" method="POST">
+              <button type="submit">x</button>
+            </form>
+        </div>
+        <!-- Adicione mais notas conforme necessário -->
+      </div>
+    </td>
+  </tr>
+{% endfor %}
+</table>
+</div>
+
+</body>
+</html>
