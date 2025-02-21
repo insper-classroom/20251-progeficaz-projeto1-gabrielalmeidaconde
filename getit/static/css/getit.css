@@ -34,12 +34,13 @@ img{
   }
   
   .notes {
+    overflow-wrap: break-word;
     background-color: #ffe97f;
     padding: 16px;
     border-radius: 8px;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
     width: 200px;
-    height: 150px;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -101,7 +102,8 @@ img{
   background-color: red;
 }
 input{
-  font-size: 20;
+  overflow-wrap: break-word;
+  font-size: 30px;
   padding: 10px;
   border-radius: 8px;
   border: 1px solid #ccc;
@@ -117,3 +119,12 @@ input{
   cursor: pointer;
   align-self: flex-end;
 }
+textarea{
+  overflow-wrap: break-word;
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 100%;
+  margin-bottom: 10px;
+} 

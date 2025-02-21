@@ -12,7 +12,7 @@
       <label for="titulo">Título</label>
       <input id="titulo" type="text" name="titulo" />
       <label for="detalhes">Detalhes</label>
-      <input id="detalhes" name="detalhes" />
+      <textarea id="detalhes" name="detalhes" style="resize: none; width: 100%; height: auto;" oninput="this.style.height = ''; this.style.height = this.scrollHeight + 'px'">{{detalhes if detalhes is not none else '' }}</textarea>
       <button type="submit"><div class="save-button">criar</div></button>
     </form>
   </div>

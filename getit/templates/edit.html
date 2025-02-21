@@ -14,7 +14,7 @@
             <label for="titulo">Título</label>
             <input id="titulo" type="text" name="titulo" value="{{ data.titulo }}" />
             <label for="detalhes">Detalhes</label>
-            <input id="detalhes" type='text' name="detalhes" value="{{ data.detalhes }}" />
+            <textarea id="detalhes" name="detalhes" style="resize: none; width: 100%; height: auto;" oninput="this.style.height = ''; this.style.height = this.scrollHeight + 'px'">{{ data.detalhes }}</textarea>
             <button type="submit"><def class="save-button">salvar</def></button>
         </form>
     </div>
